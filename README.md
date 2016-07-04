@@ -3,10 +3,21 @@ cal
 
 A console program to display calendars. Similar to the common Unix command, but with different arguments.
 
+Build
+=====
+Requires [node and npm](https://nodejs.org).
+
+```npm run build``` will install the necessary node modules and then copy the distribution files into a folder named `dist`.
+
+You can then run the program by executing either `dist/cal/cal.cmd` from a Windows command line
+or `dist\cal\cal` from a Linux/macOS shell.
+
 Usage
 =====
+Requires [node](https://nodejs.org)
+
 ```
-usage: node cal.js [-h] [-v] [-Y] [-x EXTRA] [-b BEFORE] [-a AFTER] [-w WIDTH]
+usage: cal [-h] [-v] [-Y] [-x EXTRA] [-b BEFORE] [-a AFTER] [-w WIDTH]
               [-m MONTH] [-y YEAR]
 
 Optional arguments:
