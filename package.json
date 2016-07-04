@@ -19,5 +19,9 @@
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "standard": "^7.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psobolik/cal.git"
   }
 }
