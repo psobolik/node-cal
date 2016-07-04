@@ -1,0 +1,23 @@
+{
+  "name": "cal",
+  "version": "1.0.0",
+  "description": "Calendar printer",
+  "author": "Paul Sobolik",
+  "license": "ISC",
+  "main": "cal.js",
+  "scripts": {
+    "start": "node cal.js",
+    "lint": "standard",
+    "init": "npm install",
+    "package": "grunt copy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "argparse": "^1.0.7"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "standard": "^7.1.1"
+  }
+}
