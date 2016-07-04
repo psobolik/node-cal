@@ -4,21 +4,21 @@ module.exports = (grunt) => {
     copy: {
       dist: {
         files: [
-          { src: 'cal.js', dest: 'dist/app/' },
-          { src: 'calendar.js', dest: 'dist/app/' },
-          { src: 'README.md', dest: 'dist/app/' },
-          { src: 'cmd/cal', dest: 'dist/cal' },
-          { src: 'cmd/cal.cmd', dest: 'dist/cal.cmd' },
+          { src: 'cal.js', dest: 'dist/cal/app/' },
+          { src: 'calendar.js', dest: 'dist/cal/app/' },
+          { src: 'README.md', dest: 'dist/cal/app/' },
+          { src: 'cmd/cal', dest: 'dist/cal/cal' },
+          { src: 'cmd/cal.cmd', dest: 'dist/cal/cal.cmd' },
           {
             expand: true,
             cwd: 'node_modules/argparse/',
             src: ['**/*'],
-            dest: 'dist/node_modules/argparse/'
+            dest: 'dist/cal/node_modules/argparse/'
           }, {
             expand: true,
             cwd: 'node_modules/sprintf-js/',
             src: ['**/*'],
-            dest: 'dist/node_modules/sprintf-js/'
+            dest: 'dist/cal/node_modules/sprintf-js/'
           }]
       }
     }
