@@ -2,12 +2,14 @@
   'use strict'
 
   const dumpCalendar = (calendar, options) => {
-    const weekNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+    const sep = ' '
+    const weekNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
     const across = Number.parseInt(options.across, 10) || 3
     const padding = Number.parseInt(options.padding, 10) || 2
     const cellWidth = padding + 1
-    const blankWeek = ' '.repeat(cellWidth * 8)
-    const eow = '|' + ' '.repeat(padding)
+    const lineLength = (cellWidth * 8) - 1
+    const blankWeek = ' '.repeat(lineLength)
+    const eow = ' '.repeat(padding)
 
     const countWeeks = (months) => {
       return months.reduce((weekCt, month, index, months) => {
@@ -19,7 +21,7 @@
       const formatItem = (value, width) => {
         const str = value.toString()
         let pad = str.length < width ? ' '.repeat(width - str.length) : ''
-        return `|${pad}${str}`
+        return `${pad}${str}${sep}`
       }
       return (Array.from(items, (item) => {
         return formatItem(item, width)
@@ -30,7 +32,10 @@
       const formatMonthHeader = (month) => {
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         const value = monthNames[month.month] + ' ' + month.year
-        return value + blankWeek.substr(value.length)
+        var vl = value.length
+        var fl = (lineLength - vl) / 2
+        var rl = lineLength - fl - vl
+        return blankWeek.substr(0,fl) + value + blankWeek.substr(0,rl)
       }
       months.forEach((month) => {
         process.stdout.write(formatMonthHeader(month))

@@ -7,7 +7,7 @@
 
   var ArgumentParser = require('argparse').ArgumentParser
   var argParser = new ArgumentParser({
-    version: '1.0.0',
+    version: '1.0.1',
     addHelp: true,
     description: 'Calendar printer'
   })

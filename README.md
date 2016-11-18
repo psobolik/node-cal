@@ -9,8 +9,8 @@ Requires [node and npm](https://nodejs.org).
 
 ```npm run build``` will install the necessary node modules and then copy the distribution files into a folder named `dist`.
 
-You can then run the program by executing either `dist/cal/cal.cmd` from a Windows command line
-or `dist\cal\cal` from a Linux/macOS shell.
+You can then run the program by executing either `dist\cal\cal.cmd` from a Windows command line
+or `dist/cal/cal` from a Linux/macOS shell.
 
 Usage
 =====
