@@ -35,7 +35,7 @@
         var vl = value.length
         var fl = (lineLength - vl) / 2
         var rl = lineLength - fl - vl
-        return blankWeek.substr(0,fl) + value + blankWeek.substr(0,rl)
+        return blankWeek.substr(0, fl) + value + blankWeek.substr(0, rl)
       }
       months.forEach((month) => {
         process.stdout.write(formatMonthHeader(month))
