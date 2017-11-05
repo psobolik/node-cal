@@ -33,7 +33,7 @@
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         const value = monthNames[month.month] + ' ' + month.year
         var vl = value.length
-        var fl = (lineLength - vl) / 2
+        var fl = Math.ceil((lineLength - vl - cellWidth) / 2)
         var rl = lineLength - fl - vl
         return blankWeek.substr(0, fl) + value + blankWeek.substr(0, rl)
       }
