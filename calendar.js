@@ -78,21 +78,22 @@
   var buildCalendar = (year, firstMonth, monthCount) => {
     const buildMonthCalendar = (year, month) => {
       // console.log(`buildMonthCalendar(${year}, ${month})`)
-      const getLastDay = (date) => {
-        const lastDay = new Date(year, month + 1)
-        lastDay.setDate(lastDay.getDate() - 1)
+      const getLastDay = (year, month) => {
+        const lastDay = new Date(year, month + 1, 0)
         return lastDay.getDate()
       }
-      let date = new Date(year, month)
-
+      const getFirstDay = (year, month) => {
+        const date = new Date(year, month)
+        return 1 - date.getDay()
+      }
       let weeks = []
 
-      var day = 1 - date.getDay()
-      const lastDay = getLastDay(date)
+      var day = getFirstDay(year, month)
+      const lastDay = getLastDay(year, month)
       while (day <= lastDay) {
         let days = []
         while (days.length < 7) {
-          let dayStr = day > 0 && day <= lastDay ? day.toString() : ' '
+          let dayStr = day > 0 && day <= lastDay ? day : ''
           days.push(dayStr)
           ++day
         }
