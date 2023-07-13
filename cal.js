@@ -1,5 +1,3 @@
-const { version } = require('grunt')
-
 ; (() => {
   'use strict'
 
@@ -20,7 +18,7 @@ const { version } = require('grunt')
   argParser.add_argument('-w', '--width', { help: 'Display number of months per line. (Default 3)' })
   argParser.add_argument('-m', '--month', { help: 'The month (1-12) to display. (Default current month)', required: false })
   argParser.add_argument('-y', '--year', { help: 'The year to display. (Default current year)', required: false })
-  argParser.add_argument('-v', '--version', { action: 'version', version: '1.2.0' })
+  argParser.add_argument('-v', '--version', { action: 'version', version: '1.3.0' })
 
   const args = argParser.parse_args()
 
@@ -58,7 +56,7 @@ const { version } = require('grunt')
     year = firstMonth.getFullYear()
   }
 
-  const cal = calendar.buildCalendar(Number.parseInt(year, 10), Number.parseInt(month, 10), monthCount)
+  const cal = calendar.buildCalendar(Number.parseInt(year, 10), month, monthCount)
   calendar.dumpCalendar(cal, { across: width })
 
   // console.timeEnd('Total')

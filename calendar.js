@@ -20,7 +20,7 @@
     const formatLine = (items, width) => {
       const formatItem = (value, width) => {
         const str = value.toString()
-        let pad = str.length < width ? ' '.repeat(width - str.length) : ''
+        const pad = str.length < width ? ' '.repeat(width - str.length) : ''
         return `${pad}${str}${sep}`
       }
       return (Array.from(items, (item) => {
@@ -32,10 +32,10 @@
       const formatMonthHeader = (month) => {
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         const value = monthNames[month.month] + ' ' + month.year
-        var vl = value.length
-        var fl = Math.ceil((lineLength - vl - cellWidth) / 2)
-        var rl = lineLength - fl - vl
-        return blankWeek.substr(0, fl) + value + blankWeek.substr(0, rl)
+        const vl = value.length
+        const fl = Math.ceil((lineLength - vl - cellWidth) / 2)
+        const rl = lineLength - fl - vl
+        return blankWeek.substring(0, fl) + value + blankWeek.substring(0, rl)
       }
       months.forEach((month) => {
         process.stdout.write(formatMonthHeader(month))
@@ -53,16 +53,16 @@
 
     let m = 0
     while (m < calendar.length) {
-      let months = calendar.slice(m, m + across)
+      const months = calendar.slice(m, m + across)
       m += across
-      let weekCt = countWeeks(months)
+      const weekCt = countWeeks(months)
       dumpMonthHeaders(months)
       dumpWeekHeaders(months)
 
       for (let weekIndex = 0; weekIndex < weekCt; ++weekIndex) {
         months.forEach((month) => {
           if (weekIndex < month.weeks.length) {
-            let week = month.weeks[weekIndex]
+            const week = month.weeks[weekIndex]
             process.stdout.write(formatLine(week, padding))
             process.stdout.write(eow)
           } else {
@@ -75,7 +75,7 @@
     }
   }
 
-  var buildCalendar = (year, firstMonth, monthCount) => {
+  const buildCalendar = (year, firstMonth, monthCount) => {
     const buildMonthCalendar = (year, month) => {
       // console.log(`buildMonthCalendar(${year}, ${month})`)
       const getLastDay = (year, month) => {
@@ -86,14 +86,14 @@
         const date = new Date(year, month)
         return 1 - date.getDay()
       }
-      let weeks = []
+      const weeks = []
 
-      var day = getFirstDay(year, month)
+      let day = getFirstDay(year, month)
       const lastDay = getLastDay(year, month)
       while (day <= lastDay) {
-        let days = []
+        const days = []
         while (days.length < 7) {
-          let dayStr = day > 0 && day <= lastDay ? day : ''
+          const dayStr = day > 0 && day <= lastDay ? day : ''
           days.push(dayStr)
           ++day
         }
@@ -103,7 +103,7 @@
     }
 
     // console.log(`buildCalendar(${year}, ${month}, ${monthCount})`)
-    let result = []
+    const result = []
     for (let i = 0; i < monthCount; ++i) {
       const date = new Date(Number.parseInt(year, 10), Number.parseInt(firstMonth, 10) + i)
       result.push(buildMonthCalendar(date.getFullYear(), date.getMonth()))
